@@ -13613,6 +13613,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4239987763319997329, guid: 18b5eff1787d77f4bba82103d2f1c78e, type: 3}
+      propertyPath: m_GravityScale
+      value: 5.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239987763319997329, guid: 18b5eff1787d77f4bba82103d2f1c78e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920716152692972194, guid: 18b5eff1787d77f4bba82103d2f1c78e, type: 3}
+      propertyPath: fltJumpSpeed
+      value: 15.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5859444366778419722, guid: 18b5eff1787d77f4bba82103d2f1c78e, type: 3}
       propertyPath: m_Name
       value: Player
