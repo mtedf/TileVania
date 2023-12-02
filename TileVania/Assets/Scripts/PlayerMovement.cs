@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float fltRunSpeed = 10f;
     [SerializeField] float fltJumpSpeed = 5f;
     [SerializeField] float fltClimbSpeed = 3f;
+    [SerializeField] Vector2 deathFall = new Vector2(10f, 10f);
     
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
@@ -105,6 +106,8 @@ public class PlayerMovement : MonoBehaviour
         if (myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
         {
             isAlive = false;
+            myAnimator.SetTrigger("Dying");
+            myRigidbody.velocity = deathFall;
         }
     }
 
