@@ -15,6 +15,13 @@ public class LevelExit : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.DeactivatePowerup();
+            }
+
+
             StartCoroutine(LoadNextLevel());
         }
         
@@ -25,6 +32,8 @@ public class LevelExit : MonoBehaviour
 
     IEnumerator LoadNextLevel()
     {
+        
+
         yield return new WaitForSecondsRealtime(fltLevelLoadDelay);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int intNextSceneIndex = currentSceneIndex + 1;

@@ -7,7 +7,10 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float fltRunSpeed = 10f;
-    [SerializeField] float fltJumpSpeed = 5f;
+    public float fltJumpSpeed = 15.9f;
+    public float fltPowerJumpSpeed = 30f;
+    bool powerUp = false;
+
     [SerializeField] float fltClimbSpeed = 3f;
     [SerializeField] Vector2 deathFall = new Vector2(10f, 10f);
     [SerializeField] GameObject bullet;
@@ -23,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     bool isAlive = true;
 
     
+
+    
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         fltGravityScaleAtStart = myRigidbody.gravityScale;
         myFeetCollider = GetComponent<BoxCollider2D>();
+
+        
     }
 
     // Update is called once per frame
@@ -42,6 +49,24 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
         ClimbLadder();
         Die();
+        
+        if(powerUp)
+        {
+            fltJumpSpeed = fltPowerJumpSpeed;
+        }
+        else
+        {
+            fltJumpSpeed = 15.9f;
+        }
+    }
+
+    public void ActivatePowerup()
+    {
+        powerUp = true;
+    }
+    public void DeactivatePowerup()
+    {
+        powerUp = false;
     }
 
     void OnFire(InputValue value)
